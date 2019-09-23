@@ -101,11 +101,11 @@
         if (action.event === "New Deposit") {
             let source = "https://www.youtube.com/embed/" + "lTTajzrSkCw" + "?enablejsapi=1&origin=http%3A%2F%2Flocalhost%3A9000&widgetid=1";
             document.getElementById('video-placeholder').setAttribute("src", source);
-            setTimeout(function()
-                        {
-                          player.playVideo();
-                          modal.style.display = "block"
-                        },3000);
+            setTimeout(function() {
+                console.log("player");
+                player.playVideo();
+                modal.style.display = "block";
+                },3000);
             setTimeout(function(){
                 modal.style.display = "none";
             }, 20000);
