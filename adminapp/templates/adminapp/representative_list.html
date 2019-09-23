@@ -1,0 +1,8 @@
+<h1>Representative Data</h1>
+<ul>
+{% for data in object_list %}
+    <li>{{ data.name }} - {{ data.target }} - {{ data.daily_FTD }} - {{ data.daily_amount }} - {{ data.monthly_FTD }} - {{ data.monthly_amount }}</li>
+{% empty %}
+    <li>No Representative Data Yet!</li>
+{% endfor %}
+</ul>
