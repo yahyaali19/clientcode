@@ -27,6 +27,7 @@ SECRET_KEY = 's^+j)l%g!1dvqli1et2)sth0xte$=xtxik-o9o0w!$+i^9ii6d'
 DEBUG = True
 
 ALLOWED_HOSTS = ['representativetable.herokuapp.com',
+		 '159.65.160.71',
                  'localhost',
                  '127.0.0.1',
                  '0.0.0.0']

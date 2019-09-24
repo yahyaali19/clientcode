@@ -99,10 +99,10 @@
       webSocketBridge.connect('/notifications/');
       webSocketBridge.listen(function(action, stream) {
         if (action.event === "New Deposit") {
-            let source = "https://www.youtube.com/embed/" + "lTTajzrSkCw" + "?enablejsapi=1&origin=http%3A%2F%2Flocalhost%3A9000&widgetid=1";
+            let source = "https://www.youtube.com/embed/" + "lTTajzrSkCw" + "?enablejsapi=1&origin=http%3A%2F%2F159.65.160.71%3A8000&widgetid=1";
             document.getElementById('video-placeholder').setAttribute("src", source);
             setTimeout(function() {
-                console.log("player");
+                console.log(player);
                 player.playVideo();
                 modal.style.display = "block";
                 },3000);
