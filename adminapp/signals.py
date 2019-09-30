@@ -10,13 +10,13 @@ import random
 @receiver(post_save, sender=models.Deposit)
 def deposit_added(sender, instance, created, **kwargs):
     if created:
-        # Update FTD and amounts
+        # Update FTD and amount
         representative = models.Representative.objects.get(name=instance.representative.name)
         representative.daily_FTD += 1
         representative.daily_amount += instance.amount
         representative.monthly_FTD += 1
         representative.monthly_amount += instance.amount
-
+        representative.save()
         # Select a Random video and sent it as notification
         videos = models.Video.objects.all()
         count = videos.count()
