@@ -31,3 +31,17 @@ def deposit_added(sender, instance, created, **kwargs):
                     "video": videos[random_video].video_key
                 }
             )
+
+@receiver(post_save, sender=models.Representative)
+def representative_added(sender, instance, created, **kwargs):
+    if created:
+        representative = models.Representative.objects.get(name=instance.name)
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            "gossip", {
+                "type": "user.gossip",
+                "event": "New Representative",
+                "username": representative.name,
+            }
+        )
+
