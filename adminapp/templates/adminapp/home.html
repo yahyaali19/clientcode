@@ -100,11 +100,11 @@
         {% endfor %}
         <tr style="color: black;">
           <th style="background-color: #6976BA; border-bottom-left-radius:20px;" scope="col"></th>
-          <th style="background-color: #FFD799;" scope="col">{{ monthly_FTD_total }}</th>
-          <th style="background-color: #6FCBC6;" scope="col">{{ monthly_amount_total }}</th>
-          <th style="background-color: #FFD799;" scope="col">{{ daily_FTD_total }}</th>
-          <th style="background-color: #6FCBC6;" scope="col">{{ daily_amount_total }}</th>
-          <th style="background-color: #6976BA; border-bottom-right-radius:20px;" scope="col">{{ target_total }}</th>
+          <th id="t1" style="background-color: #FFD799;" scope="col">{{ monthly_FTD_total }}</th>
+          <th id="t2" style="background-color: #6FCBC6;" scope="col">{{ monthly_amount_total }}</th>
+          <th id="t3" style="background-color: #FFD799;" scope="col">{{ daily_FTD_total }}</th>
+          <th id="t4" style="background-color: #6FCBC6;" scope="col">{{ daily_amount_total }}</th>
+          <th id="t5" style="background-color: #6976BA; border-bottom-right-radius:20px;" scope="col">{{ target_total }}</th>
         </tr>
       </tbody>
     </table>
@@ -143,6 +143,12 @@
 
           document.getElementById("progress-percentage").innerHTML = action.progress_bar + " %"
           document.getElementById("progress-percentage").style.width = action.progress_bar + "%"
+
+          document.getElementById("t1").innerHTML = action.monthly_FTD_total
+          document.getElementById("t2").innerHTML = action.monthly_amount_total
+          document.getElementById("t3").innerHTML = action.daily_FTD_total
+          document.getElementById("t4").innerHTML = action.daily_amount_total
+          document.getElementById("t5").innerHTML = action.target_total
 
           setTimeout(function () {
             console.log(player);

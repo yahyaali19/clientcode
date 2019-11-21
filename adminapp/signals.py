@@ -1,5 +1,5 @@
 from . import models
-from .utils import calculate_progress_bar
+from .utils import calculate_progress_bar, all_sum
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from channels.layers import get_channel_layer
@@ -31,6 +31,7 @@ def deposit_added(sender, instance, created, **kwargs):
         # Select a Random video and sent it as notification
         videos = models.Video.objects.all()
         count = videos.count()
+        target_total, monthly_FTD_total, monthly_amount_total, daily_FTD_total, daily_amount_total = all_sum()
         if count > 0:
             random_video = random.randint(0, count - 1)
             channel_layer = get_channel_layer()
@@ -41,7 +42,12 @@ def deposit_added(sender, instance, created, **kwargs):
                     "username": representative.name,
                     "progress_bar": calculate_progress_bar(), 
                     "amount": instance.amount,
-                    "video": videos[random_video].video_key
+                    "video": videos[random_video].video_key,
+                    "target_total": target_total,
+                    "monthly_FTD_total": monthly_FTD_total,
+                    "monthly_amount_total": monthly_amount_total,
+                    "daily_FTD_total": daily_FTD_total,
+                    "daily_amount_total": daily_amount_total
                 }
             )
 
