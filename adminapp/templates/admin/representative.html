@@ -1,0 +1,13 @@
+{% extends "admin/change_list.html" %}
+{% block object-tools-items %}
+
+    {{ block.super }}
+
+    <li>
+        <a href="export/" class="grp-state-focus">Reset Daily</a>
+    </li>
+    <li>
+        <a href="export/" class="grp-state-focus">Reset Monthly</a>
+    </li>
+
+{% endblock %}
