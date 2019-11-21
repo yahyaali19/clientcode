@@ -80,31 +80,28 @@
       <thead>
         <tr>
           <th style="background-color: #6976BA; border-top-left-radius:20px;" scope="col">Name</th>
-          <th style="background-color: #FFD799;" scope="col">Monthly FTD</th>
-          <th style="background-color: #6FCBC6;" scope="col">Monthly amount</th>
-          <th style="background-color: #FFD799;" scope="col">Daily FTD</th>
-          <th style="background-color: #6FCBC6;" scope="col">Daily Amount</th>
-          <th style="background-color: #6976BA; border-top-right-radius:20px;" scope="col">Target</th>
+TD</th>
+          <th style="background-color: #6976BA; border-top-right-radius:20px;" scope="col">Monthly Amount</th>
         </tr>
       </thead>
       <tbody>
         {% for data in representative_data %}
         <tr>
           <th scope="row">{{ data.name }}</th>
-          <td>{{ data.monthly_FTD }}</td>
-          <td>{{ data.monthly_amount }}</td>
+          <td>{{ data.target }}</td>
           <td>{{ data.daily_FTD }}</td>
           <td>{{ data.daily_amount }}</td>
-          <td>{{ data.target }}</td>
+          <td>{{ data.monthly_FTD }}</td>
+          <td>{{ data.monthly_amount }}</td>
         </tr>
         {% endfor %}
         <tr style="color: black;">
           <th style="background-color: #6976BA; border-bottom-left-radius:20px;" scope="col"></th>
-          <th style="background-color: #FFD799;" scope="col">{{ monthly_FTD_total }}</th>
-          <th style="background-color: #6FCBC6;" scope="col">{{ monthly_amount_total }}</th>
-          <th style="background-color: #FFD799;" scope="col">{{ daily_FTD_total }}</th>
-          <th style="background-color: #6FCBC6;" scope="col">{{ daily_amount_total }}</th>
-          <th style="background-color: #6976BA; border-bottom-right-radius:20px;" scope="col">{{ target_total }}</th>
+          <th style="background-color: #FFD799;" scope="col">{{ target_total }}</th>
+          <th style="background-color: #6FCBC6;" scope="col">{{ daily_FTD_total }}</th>
+          <th style="background-color: #FFD799;" scope="col">{{ daily_amount_total }}</th>
+          <th style="background-color: #6FCBC6;" scope="col">{{ monthly_FTD_total }}</th>
+          <th style="background-color: #6976BA; border-bottom-right-radius:20px;" scope="col">{{ monthly_amount_total }}</th>
         </tr>
       </tbody>
     </table>
