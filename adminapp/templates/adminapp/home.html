@@ -100,11 +100,11 @@
         {% endfor %}
         <tr style="color: black;">
           <th style="background-color: #6976BA; border-bottom-left-radius:20px;" scope="col"></th>
-          <th style="background-color: #FFD799;" scope="col">Target</th>
-          <th style="background-color: #6FCBC6;" scope="col">Sum of Daily FTD</th>
-          <th style="background-color: #FFD799;" scope="col">Sum of Daily Amount</th>
-          <th style="background-color: #6FCBC6;" scope="col">Sum of Monthly FTD</th>
-          <th style="background-color: #6976BA; border-bottom-right-radius:20px;" scope="col">Sum of Monthly Amount</th>
+          <th style="background-color: #FFD799;" scope="col">{{ target }}</th>
+          <th style="background-color: #6FCBC6;" scope="col">{{ daily_FTD_total }}</th>
+          <th style="background-color: #FFD799;" scope="col">{{ daily_amount_total }}</th>
+          <th style="background-color: #6FCBC6;" scope="col">{{ monthly_FTD_total }}</th>
+          <th style="background-color: #6976BA; border-bottom-right-radius:20px;" scope="col">{{ monthly_amount_total }}</th>
         </tr>
       </tbody>
     </table>
@@ -140,6 +140,10 @@
           document.getElementById('video-placeholder').setAttribute("src", source);
           document.getElementById('repname').innerHTML = action.username;
           document.getElementById('repamount').innerHTML = action.amount;
+
+          document.getElementById("progress-percentage").innerHTML = action.progress_bar + " %"
+          document.getElementById("progress-percentage").style.width = action.progress_bar + "%"
+
           setTimeout(function () {
             console.log(player);
             player.playVideo();

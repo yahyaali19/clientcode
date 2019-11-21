@@ -39,8 +39,8 @@ def deposit_added(sender, instance, created, **kwargs):
                     "type": "user.gossip",
                     "event": "New Deposit",
                     "username": representative.name,
-                    "progress_bar": calculate_progress_bar(),
-		    "amount": instance.amount,
+                    "progress_bar": calculate_progress_bar(), 
+                    "amount": instance.amount,
                     "video": videos[random_video].video_key
                 }
             )
