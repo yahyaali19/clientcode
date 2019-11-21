@@ -1,4 +1,7 @@
 from . import models
+from .utils import calculate_progress_bar
+
+
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from channels.layers import get_channel_layer
@@ -28,7 +31,8 @@ def deposit_added(sender, instance, created, **kwargs):
                     "type": "user.gossip",
                     "event": "New Deposit",
                     "username": representative.name,
-                    "video": videos[random_video].video_key
+                    "video": videos[random_video].video_key,
+                    "progress_bar": calculate_progress_bar()
                 }
             )
 
