@@ -9,6 +9,6 @@ class RepresentativeView(TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['representative_data'] = Representative.objects.all().order_by('monthly_FTD')
         context['progress_bar'] = calculate_progress_bar()
+        context['representative_data'] = Representative.objects.all().order_by('-monthly_FTD')
         return context

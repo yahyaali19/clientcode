@@ -4,10 +4,10 @@
     {{ block.super }}
 
     <li>
-        <a href="export/" class="grp-state-focus">Reset Daily</a>
+        <a href="{% url 'admin:reset_daily' %}" class="grp-state-focus">Reset Daily</a>
     </li>
     <li>
-        <a href="export/" class="grp-state-focus">Reset Monthly</a>
+        <a href="{% url 'admin:reset_monthly' %}" class="grp-state-focus">Reset Monthly</a>
     </li>
 
 {% endblock %}

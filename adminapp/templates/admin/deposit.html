@@ -4,10 +4,10 @@
     {{ block.super }}
 
     <li>
-        <a href="{% url 'admin:delete_deposit'%}" class="grp-state-focus">Reset All</a>
+        <a href="{% url 'admin:delete_deposit' %}" class="grp-state-focus">Reset All</a>
     </li>
     <li>
-        <a href="export/" class="grp-state-focus">Export(CSV)</a>
+        <a href="{% url 'admin:export_data' %}" class="grp-state-focus">Export(CSV)</a>
     </li>
 
 {% endblock %}
